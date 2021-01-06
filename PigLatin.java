@@ -3,11 +3,11 @@ public class PigLatin{
 
   public static String pigLatinSimple(String s){
     if (
-    ( s.charAt(0) == 'a' ) ||
-    ( s.charAt(0) == 'e' ) ||
-    ( s.charAt(0) == 'i' ) ||
-    ( s.charAt(0) == 'o' ) ||
-    ( s.charAt(0) == 'u' ) ){
+    ( (s.substring(0,1)).toLowerCase() ).equals("a") ||
+    ( (s.substring(0,1)).toLowerCase() ).equals("e") ||
+    ( (s.substring(0,1)).toLowerCase() ).equals("i") ||
+    ( (s.substring(0,1)).toLowerCase() ).equals("o") ||
+    ( (s.substring(0,1)).toLowerCase() ).equals("u") ) {
       return s + "hay";
     }
     else{
@@ -48,15 +48,16 @@ public class PigLatin{
 
 
   public static void main (String args []){
-
     Scanner n = new Scanner( System.in );
     while (n.hasNextLine()){
       Scanner CurrentLine = new Scanner(n.nextLine());
       while (CurrentLine.hasNext()){
         String a = CurrentLine.next();
         System.out.print(pigLatinBest(a));
+      if (CurrentLine.hasNext()){
         System.out.print(" ");
       }
+    }
       if (n.hasNextLine() ){
         System.out.print("\r\n");
       }
