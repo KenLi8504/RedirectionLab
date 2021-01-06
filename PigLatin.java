@@ -57,7 +57,9 @@ public class PigLatin{
         System.out.print(pigLatinBest(a));
         System.out.print(" ");
       }
-      System.out.println('\n');
+      if (n.hasNextLine() ){
+        System.out.print("\r\n");
+      }
     }
     /*
     System.out.println(pigLatinSimple("mock"));
