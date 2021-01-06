@@ -17,7 +17,10 @@ public class PigLatin{
 
   public static String pigLatin(String s){
     String Diagraphs [] = new String [] {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
-    String FirstTwo = s.substring(0,2);
+    if (s.length() < 2){
+      return (pigLatinSimple(s));
+    }
+    String FirstTwo = (s.substring(0,2)).toLowerCase();
     for (int i = 0; i < Diagraphs.length; i++){
       if (FirstTwo.equals(Diagraphs[i]) ) {
         return s.substring(2,s.length())+s.substring(0,2)+"ay";
@@ -45,6 +48,18 @@ public class PigLatin{
 
 
   public static void main (String args []){
+
+    Scanner n = new Scanner( System.in );
+    while (n.hasNextLine()){
+      Scanner CurrentLine = new Scanner(n.nextLine());
+      while (CurrentLine.hasNext()){
+        String a = CurrentLine.next();
+        System.out.print(pigLatinBest(a));
+        System.out.print(" ");
+      }
+      System.out.println('\n');
+    }
+    /*
     System.out.println(pigLatinSimple("mock"));
     System.out.println(pigLatinSimple("pie"));
     System.out.println(pigLatinSimple("david"));
@@ -64,5 +79,6 @@ public class PigLatin{
     System.out.println(pigLatinBest("cat!"));
     System.out.println(pigLatinBest("amazing?"));
     System.out.println(pigLatinBest("apple%"));
+    */
   }
 }
