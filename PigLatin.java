@@ -26,6 +26,24 @@ public class PigLatin{
     return (pigLatinSimple(s));
   }
 
+  public static String pigLatinBest(String s){
+    if (
+    (s.charAt(0) < 65) ||
+    (s.charAt(0) > 122) ||
+    (s.charAt(0) > 90 && s.charAt(0) < 97) ){
+      return s;
+    }
+    else if (
+    (s.charAt(s.length()-1) < 48) ||
+    (s.charAt(s.length()-1) > 122) ||
+    (s.charAt(s.length()-1) > 90 && s.charAt(s.length()-1) < 97) ||
+    (s.charAt(s.length()-1) > 57 && s.charAt(s.length()-1) < 65)) {
+    return (pigLatin(s.substring(0,s.length()-1)) +s.charAt(s.length()-1)).toLowerCase();
+    }
+    return pigLatin(s).toLowerCase();
+  }
+
+
   public static void main (String args []){
     System.out.println(pigLatinSimple("mock"));
     System.out.println(pigLatinSimple("pie"));
@@ -36,5 +54,15 @@ public class PigLatin{
     System.out.println(pigLatin("skee"));
     System.out.println(pigLatin("emu"));
     System.out.println(pigLatin("grade"));
+    System.out.println(pigLatinBest("4chan"));
+    System.out.println(pigLatinBest("5head"));
+    System.out.println(pigLatinBest("3.5head"));
+    System.out.println(pigLatinBest("*howdy"));
+    System.out.println(pigLatinBest("fish!"));
+    System.out.println(pigLatinBest("fish"));
+    System.out.println(pigLatinBest("the."));
+    System.out.println(pigLatinBest("cat!"));
+    System.out.println(pigLatinBest("amazing?"));
+    System.out.println(pigLatinBest("apple%"));
   }
 }
